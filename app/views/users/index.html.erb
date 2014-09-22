@@ -1,0 +1,13 @@
+<h1>Members</h1>
+
+<% @users.each do |user| %>
+    <h3>Name</h3>
+    <p><%= user.name %></p>
+    <%= link_to 'Show', user %> |
+    <%= link_to 'Edit', edit_user_path(user) %> |
+    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Another one bites the dust?!' } %>
+<% end %>
+
+
+<br>
+<%= link_to 'New User', new_user_path %>

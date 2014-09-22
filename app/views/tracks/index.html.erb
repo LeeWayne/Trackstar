@@ -1,0 +1,17 @@
+<h1>Uploaded Tracks</h1>
+
+<% @tracks.each do |track| %>
+    <h3>Track</h3>
+    <p><%= track.name %></p>
+    <h3>Description</h3>
+    <p><%= track.description %></p>
+    <%= link_to 'Show', track %> |
+    <%= link_to 'Edit', edit_track_path(track) %> |
+    <%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Is this goodbye?!' } %>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Track', new_track_path %>

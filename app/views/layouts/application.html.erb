@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project1</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+<link href='http://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <header>
+    <nav id="header">
+      <span class="home"><%= link_to 'Trackstar', root_path %></span>
+      <%= link_to 'Login', new_session_path %> 
+      <%= link_to 'Sign Up', new_user_path %> 
+      <%= link_to 'Members', users_path %> 
+      <%= link_to 'Tracks', tracks_path %> 
+      <%= link_to 'Upload Track', new_track_path %>
+    </nav>
+  </header>  
+  <div class="spacer">
+    <% flash.each do |name, msg| %>
+    <div class="flash-message flash-message-<%= name %>">
+      <%= msg %>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <p> Welcome aboard, <%= current_user.name %> </p>
+    <p><%= link_to 'Log Out', logout_path %></p>
+  <% end %>
+ </div>
+<div class="wrapper">
+<%= yield %>
+</div>
+</body>
+</html>

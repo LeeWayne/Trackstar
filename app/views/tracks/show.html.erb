@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+  <h3>Track Title</h3>
+  <p><%= @track.name %></p>
+
+  <h3>Description</h3>
+  <p><%= @track.description %></p>
+
+  <h3>Uploaded By</h3>
+  <p><%= @track.user.name %></p>
+
+ 
+  <p><%= audio_tag(@track.track_song,autoplay: false, controls: true) %> </p>
+
+    <h3>Your Say...</h3>
+  
+<%= form_for ([@track, @comment]) do |f| %>
+  <div class='field'>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Holla!" %>
+  </div>
+<% end %>
+  
+  <%= render @comments %>
+ <div class="pag">
+  <%= paginate @comments %>
+</div> 
+  
